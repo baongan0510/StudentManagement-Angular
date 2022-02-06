@@ -1,0 +1,71 @@
+<h3>Add Student</h3>
+<div class="p-fluid grid">
+    <div class="field col-12 md:col-5">
+        <span class="p-float-label">
+            <input type="text" id="inputtext" pInputText [(ngModel)]="name"> 
+            <label for="inputtext">Name</label>
+        </span>
+    </div>
+    <div class="field col-12 md:col-5">
+        <span class="p-float-label">
+            <p-autoComplete [(ngModel)]="city" 
+                [showEmptyMessage]="true" 
+                [suggestions]="filteredCities" 
+                (completeMethod)="filterCities($event)" 
+                
+                [minLength]="1"></p-autoComplete>
+            <label for="dropdown">City</label>
+        </span>
+    </div>
+
+
+
+
+    <div class="field col-12 md:col-5">
+        <span class="p-float-label">
+            <input type="text" id="inputtext" pInputText [(ngModel)]="address"> 
+            <label for="inputtext">Address</label>
+        </span>
+    </div>
+    <div class="field col-12 md:col-5">
+        <span class="p-float-label">
+            <p-calendar inputId="calendar" [(ngModel)]="birthday"></p-calendar>
+            <label for="calendar">Birthday</label>
+        </span>
+    </div>
+    <div class="field col-12 md:col-5">
+        <span class="p-float-label">
+            <p-calendar inputId="calendar" [(ngModel)]="DayRegister"></p-calendar>
+            <label for="calendar">Date Register</label>
+        </span>
+    </div>
+    <div class="field col-12 md:col-5">
+        <span class="p-float-label">
+            <p-dropdown inputId="dropdown" [autoDisplayFirst]="false" [options]="statuses" [(ngModel)]="status" optionLabel="name"></p-dropdown>
+            <label for="dropdown">Status</label>
+        </span>
+    </div>
+    <div class="field col-12 md:col-5">
+        <span class="p-float-label">
+            <p-inputNumber inputId="inputnumber" [(ngModel)]="balance"></p-inputNumber>
+            <label for="inputnumber">Balance</label>
+        </span>
+    </div>
+    <div class="field col-12 md:col-5">
+        <span class="p-float-label">
+            <p-password inputId="password" [(ngModel)]="password"></p-password>
+            <label for="password">Password</label>
+        </span>
+    </div>
+    <div class="field col-12 md:col-5">
+        <span class="p-float-label">
+            <textarea inputId="textarea" rows="3" style="resize: none;" cols="30" [(ngModel)]="notes" pInputTextarea></textarea>
+            <label for="textarea">Notes</label>
+        </span>
+    </div>
+</div>
+<p-button style="float: right; padding-right: 17%;" 
+    label="Submit" icon="pi pi-check" 
+    styleClass="p-button"
+    (onClick)="Submit()"></p-button>
+

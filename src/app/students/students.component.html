@@ -1,0 +1,168 @@
+<!-- 
+        "id":0,
+        "name":"Diệp Hòa Hợp",
+        "city":"Da Nang",
+        "address":"Benton, John B Jr",
+        "birthday":"2001-09-13",
+        "DayRegister": "2021-01-22",
+        "status": "Graduate",
+        "balance": 100 
+-->
+
+
+<p-table #dt [value]="students" 
+    [(selection)]="selectedStudents" 
+    dataKey="id" 
+    styleClass="p-datatable-customers" 
+    [rowHover]="true"
+    [rows]="5" 
+    [showCurrentPageReport]="true" 
+    [rowsPerPageOptions]="[5,10,25,50]" 
+    [loading]="loading"
+    [paginator]="true" 
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [filterDelay]="0" 
+    [globalFilterFields]="['name','address','city','balance','id','status']"
+    editMode="row">
+    
+    <ng-template pTemplate="caption">
+        <div class="table-header">
+            List of Students
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Global Search" />
+            </span>
+        </div>
+    </ng-template>
+    
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width: 3rem"></th>
+            <th style="width: 4rem" pSortableColumn="id">ID <p-sortIcon field="id"></p-sortIcon></th>
+            <th style="width: 9rem" pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+            <th style="width: 8rem" pSortableColumn="city">City <p-sortIcon field="city"></p-sortIcon></th>
+            <th style="width: 10rem" pSortableColumn="address">Address <p-sortIcon field="address"></p-sortIcon></th>
+            <th pSortableColumn="birthday">Birthday <p-sortIcon field="birthday"></p-sortIcon></th>
+            <th style="width: 6rem" pSortableColumn="DayRegister">Date Register <p-sortIcon field="DayRegister"></p-sortIcon></th>
+            <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
+            <th style="width: 3rem" pSortableColumn="balance">Balance <p-sortIcon field="balance"></p-sortIcon></th>
+            <th style="width: 8rem"></th>
+        </tr>
+
+        <tr>
+            <th>
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th>
+                <input style="width: 4rem" pInputText type="text" (input)="dt.filter($any($event.target).value, 'id', 'startsWith')" placeholder="Search by ID" class="p-column-filter">
+            </th>
+            <th>
+                <input style="width: 9rem" pInputText type="text" (input)="dt.filter($any($event.target).value, 'name', 'startsWith')" placeholder="Search by Name" class="p-column-filter">
+            </th>
+            <th>
+                <input style="width: 8rem" pInputText type="text" (input)="dt.filter($any($event.target).value, 'city', 'contains')" placeholder="Search by City" class="p-column-filter">
+            </th>
+            <th>
+                <input style="width: 10rem" pInputText type="text" (input)="dt.filter($any($event.target).value, 'address', 'contains')" placeholder="Search by City" class="p-column-filter">
+            </th>
+            <th>
+                <p-calendar (onSelect)="onBDateSelect($event)" (onClearClick)="dt.filter('', 'birthday', 'equals')" [showButtonBar]="true" styleClass="p-column-filter" placeholder="Birthday" [readonlyInput]="true" dateFormat="yy-mm-dd"></p-calendar>
+            </th>
+            <th>
+                <p-calendar (onSelect)="onRDateSelect($event)" (onClearClick)="dt.filter('', 'DayRegister', 'equals')" [showButtonBar]="true" styleClass="p-column-filter" placeholder="Registration Date" [readonlyInput]="true" dateFormat="yy-mm-dd"></p-calendar>
+            </th>
+
+            <th>
+                <p-dropdown [options]="statuses" (onChange)="dt.filter($event.value, 'status', 'equals')" styleClass="p-column-filter" placeholder="Select a Status" [showClear]="true">
+                    <ng-template let-option pTemplate="item">
+                        <span [class]="'customer-badge status-' + option.value">&#123;&#123;option.label&#125;&#125;</span>
+                    </ng-template>
+                </p-dropdown>
+            </th>
+            <th>
+                <input style="width: 3rem" pInputText type="text" (input)="onBalanceChange($event)" placeholder="Max" class="p-column-filter" >
+            </th>
+            <th></th>
+        </tr>
+        
+    </ng-template>
+
+    <ng-template pTemplate="body" let-student let-editing="editing">
+        <tr class="p-selectable-row" [pEditableRow]="student">
+            <td>
+                <p-tableCheckbox [value]="student"></p-tableCheckbox>
+            </td>
+            <td>
+                <span class="p-column-title">ID</span>
+                {{student.id}}
+            </td>
+            <td>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="student.name">
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{student.name}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td>
+                <span class="p-column-title">City</span>
+                <span class="image-text">{{student.city}}</span>
+            </td>
+            <td>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="student.address">
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{student.address}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td>
+                <span class="p-column-title">BirthDate</span>
+                {{student.birthday}}
+            </td>
+            <td>
+                <span class="p-column-title">Registration Day</span>
+                {{student.DayRegister}}
+            </td>
+            <td>
+                <span class="p-column-title">Status</span>
+                <span [class]="'customer-badge status-' + student.status">{{student.status}}</span>
+            </td>
+            <td>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="number" [(ngModel)]="student.balance">
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{student.balance}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td>
+                <p-button (click)="confirm(student)" icon="pi pi-trash"></p-button>
+                
+                <button *ngIf="!editing" pButton type="button" pInitEditableRow icon="pi pi-pencil"
+                    class="ui-button-info" (click)="onRowEditInit(student)"></button>
+                <button *ngIf="editing" pButton type="button" pSaveEditableRow icon="pi pi-check"
+                    class="ui-button-success" style="margin-right: .5em" (click)="onRowEditSave(student)"></button>
+                <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times"
+                    class="ui-button-danger" (click)="onRowEditCancel(student)"></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="8">No student found.</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-confirmDialog
+    [style]="{ width: '50vw' }"
+    [baseZIndex]="10000"
+></p-confirmDialog>
+<p-messages [value]="msgs"></p-messages>
