@@ -1,9 +1,123 @@
 {
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode" }
+  "data": [
+    {
+      "id": 0,
+      "name": "Diệp Hòa Hợp",
+      "city": "Da Nang",
+      "address": "Benton, John B Jr",
+      "birthday": "2001-09-13",
+      "DayRegister": "2021-01-22",
+      "status": "Graduate",
+      "balance": 100
+    },
+    {
+      "id": 1,
+      "name": "Dương Ðình Thắng",
+      "city": "Da Nang",
+      "address": "Benton, John B Jr",
+      "birthday": "2001-09-13",
+      "DayRegister": "2021-01-22",
+      "status": "Ungraduate",
+      "balance": 100
+    },
+    {
+      "id": 2,
+      "name": "Hồ Hoàng Lân",
+      "city": "Da Nang",
+      "address": "Benton, John B Jr",
+      "birthday": "2001-09-13",
+      "DayRegister": "2021-01-22",
+      "status": "Graduate",
+      "balance": 100
+    },
+    {
+      "id": 3,
+      "name": "Võ Trọng Hiếu",
+      "city": "Da Nang",
+      "address": "Benton, John B Jr",
+      "birthday": "2001-09-13",
+      "DayRegister": "2021-01-22",
+      "status": "Graduate",
+      "balance": 100
+    },
+    {
+      "id": 4,
+      "name": "Đỗ Trí Hào",
+      "city": "Da Nang",
+      "address": "Benton, John B Jr",
+      "birthday": "2001-09-13",
+      "DayRegister": "2021-01-22",
+      "status": "Graduate",
+      "balance": 100
+    },
+    {
+      "id": 5,
+      "name": "Vũ Trường Sơn",
+      "city": "Da Nang",
+      "address": "Benton, John B Jr",
+      "birthday": "2001-09-13",
+      "DayRegister": "2021-01-22",
+      "status": "Ungraduate",
+      "balance": 100
+    },
+    {
+      "id": 6,
+      "name": "Mạch Tấn Nam",
+      "city": "Da Nang",
+      "address": "Benton, John B Jr",
+      "birthday": "2001-09-13",
+      "DayRegister": "2021-01-22",
+      "status": "Graduate",
+      "balance": 100
+    },
+    {
+      "id": 7,
+      "name": "Nguyễn Huy Khiêm",
+      "city": "Da Nang",
+      "address": "Benton, John B Jr",
+      "birthday": "2001-09-13",
+      "DayRegister": "2021-01-22",
+      "status": "Ungraduate",
+      "balance": 100
+    },
+    {
+      "id": 8,
+      "name": "Lê Cao Tiến",
+      "city": "Da Nang",
+      "address": "Benton, John B Jr",
+      "birthday": "2001-09-13",
+      "DayRegister": "2021-01-22",
+      "status": "Graduate",
+      "balance": 100
+    },
+    {
+      "id": 9,
+      "name": "Trương Ngọc Tiến",
+      "city": "Da Nang",
+      "address": "222 Nguyễn Tất Thành",
+      "birthday": "2001-09-13",
+      "DayRegister": "2021-01-22",
+      "status": "Graduate",
+      "balance": 44
+    },
+    {
+      "id": 10,
+      "name": "Nguyen Van A",
+      "city": "Da Nang",
+      "address": "Benton, John B Jr",
+      "birthday": "2001-09-13",
+      "DayRegister": "2021-01-22",
+      "status": "Graduate",
+      "balance": 100
+    },
+    {
+      "id": 12,
+      "name": "Nguyễn Xuân Lan",
+      "city": "Da Nang",
+      "address": "Benton, John B Jr",
+      "birthday": "2001-09-13",
+      "DayRegister": "2021-01-22",
+      "status": "Ungraduate",
+      "balance": 100
+    }
 }
