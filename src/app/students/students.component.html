@@ -161,8 +161,11 @@
     </ng-template>
 </p-table>
 
-<p-confirmDialog
+<!-- <p-confirmDialog
     [style]="{ width: '50vw' }"
     [baseZIndex]="10000"
-></p-confirmDialog>
-<p-messages [value]="msgs"></p-messages>
+></p-confirmDialog> -->
+<!-- <p-messages [value]="msgs"></p-messages> -->
+<p-confirmDialog [style]="{width: '50vw'}" key="positionDialog" [baseZIndex]="10000" rejectButtonStyleClass="p-button-outlined"></p-confirmDialog>
+
+<p-toast></p-toast>
